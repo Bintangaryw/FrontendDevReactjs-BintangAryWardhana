@@ -18,7 +18,7 @@ const ResCardComponent = ({ res_id, res_name, res_rating, res_category, res_pric
             </div>
             <div className="flex justify-between items-center">
                 <div>
-                    <p>{renderPriceIndicator(res_price.min)}</p>
+                    <p>{renderPriceIndicator(res_price)}</p>
                 </div>
                 <div className={res_openStatus ? "text-green-500 rounded-lg p-2 text-sm" : "text-red-500 rounded-lg p-2 text-sm"}>{res_openStatus ? "Open" : "Close"}</div>
             </div>
