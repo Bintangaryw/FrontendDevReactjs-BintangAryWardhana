@@ -1,30 +1,16 @@
-import { FaStar } from "react-icons/fa";
+import { renderStars } from "../../../script/rating-counter/RenderStars";
+import PropType from "prop-types";
 
-const RevCard = () => {
+const RevCard = ({ rev_name, rev_text, rev_rating }) => {
     return (
         <div>
             <div>
-                <div className="flex flex-col py-4">
-                    <h1 className="text-xl font-medium">Reviews</h1>
+                <div className="flex flex-col">
                     <div className="py-3">
-                        <h1>From, </h1>
-                        <h1>Eve</h1>
-                        <p className="text-sm">
-                            <span className="text-[#002b56]">
-                                <FaStar />
-                            </span>
-                        </p>
-                        <p className="text-sm italic text-gray-500">&quot;The sushi was fresh and melted in my mouth.&quot;</p>
-                    </div>
-                    <div className="py-3">
-                        <h1>From, </h1>
-                        <h1>Eve</h1>
-                        <p className="text-sm">
-                            <span className="text-[#002b56]">
-                                <FaStar />
-                            </span>
-                        </p>
-                        <p className="text-sm italic text-gray-500">&quot;The sushi was fresh and melted in my mouth.&quot;</p>
+                        <h1 className="text-sm">From, </h1>
+                        <h1>{rev_name}</h1>
+                        <p className="text-sm flex">{renderStars(rev_rating)}</p>
+                        <p className="text-sm italic text-gray-500">&quot;{rev_text}&quot;</p>
                     </div>
                 </div>
             </div>
@@ -32,4 +18,9 @@ const RevCard = () => {
     );
 };
 
+RevCard.propTypes = {
+    rev_name: PropType.any,
+    rev_text: PropType.any,
+    rev_rating: PropType.any,
+};
 export default RevCard;

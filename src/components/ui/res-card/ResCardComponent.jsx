@@ -1,35 +1,9 @@
-import { FaStar } from "react-icons/fa";
-// import { FaStarHalf } from "react-icons/fa";
-import { HiOutlineCurrencyDollar } from "react-icons/hi";
+import { renderStars } from "../../../script/rating-counter/RenderStars";
+import { renderPriceIndicator } from "../../../script/price-counter/RenderPriceIndicator.jsx";
 import PropType from "prop-types";
 import { Link } from "react-router-dom";
 
 const ResCardComponent = ({ res_id, res_name, res_rating, res_category, res_price, res_openStatus }) => {
-    // this is for price icon indicator counter by minimum price
-    const renderPriceIndicator = (priceMin) => {
-        let dollarCount = 0;
-        if (priceMin < 10000) {
-            dollarCount = 1;
-        } else if (priceMin < 20000) {
-            dollarCount = 2;
-        } else {
-            dollarCount = 3;
-        }
-        return Array(dollarCount)
-            .fill(null)
-            .map((_, index) => <HiOutlineCurrencyDollar key={index} className="inline text-slate-500" />);
-    };
-    // this is for rating icon indicator counter
-    const renderStars = (rating) => {
-        // Bulatkan rating ke bawah
-        const roundedRating = Math.floor(rating);
-
-        // Buat array sebanyak nilai rating dan render bintang
-        return Array(roundedRating)
-            .fill(null)
-            .map((_, index) => <FaStar key={index} className="text-yellow-500" />);
-    };
-
     return (
         <div className="max-w-[300px] h-full flex flex-col hover:shadow-xl p-5  ">
             <div>

@@ -1,5 +1,6 @@
 import Header from "../../ui/header/Header";
 import ResCardComponent from "../../ui/res-card/ResCardComponent";
+import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -64,15 +65,36 @@ const Main = () => {
 
                             {/* Price range filter */}
                             <div className="pb-5">
-                                <p>Price Range</p>
-                                <label htmlFor="min" className="text-sm">
-                                    Min
-                                </label>
-                                <input type="Text" id="min" name="min" placeholder="min price" className="border-black p-1" />
-                                <label htmlFor="min" className="text-sm">
-                                    Max
-                                </label>
-                                <input type="Text" id="max" name="max" placeholder="max price" className="border-black p-1" />
+                                <p>Price</p>
+                                <div className="flex flex-col">
+                                    <div className="flex">
+                                        <input type="radio" id="price" name="fav_language" value="price" />
+                                        <label htmlFor="price" className="pl-2">
+                                            <div className="flex">
+                                                <HiOutlineCurrencyDollar />
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div className="flex">
+                                        <input type="radio" id="price" name="fav_language" value="price" />
+                                        <label htmlFor="price" className="pl-2">
+                                            <div className="flex">
+                                                <HiOutlineCurrencyDollar />
+                                                <HiOutlineCurrencyDollar />
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div className="flex">
+                                        <input type="radio" id="price" name="fav_language" value="price" />
+                                        <label htmlFor="price" className="pl-2">
+                                            <div className="flex">
+                                                <HiOutlineCurrencyDollar />
+                                                <HiOutlineCurrencyDollar />
+                                                <HiOutlineCurrencyDollar />
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
 
                             {/* Category filter */}
