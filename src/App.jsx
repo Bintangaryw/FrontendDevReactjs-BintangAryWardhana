@@ -1,9 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainPage from "./pages/mainpage/MainPage";
+import RestaurantDetail from "./pages/detail/RestaurantDetail";
+
 function App() {
     return (
         <>
-            <div>
-                <h1>Hello world</h1>
-            </div>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<MainPage />} />
+                    <Route path="/detail" element={<RestaurantDetail />} />
+                </Routes>
+            </BrowserRouter>
         </>
     );
 }
