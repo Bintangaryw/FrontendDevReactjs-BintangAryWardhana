@@ -3,11 +3,11 @@ import { renderPriceIndicator } from "../../../script/price-counter/RenderPriceI
 import PropType from "prop-types";
 import { Link } from "react-router-dom";
 
-const ResCardComponent = ({ res_id, res_name, res_rating, res_category, res_price, res_openStatus }) => {
+const ResCardComponent = ({ res_id, res_name, res_rating, res_category, res_price, res_openStatus, res_image }) => {
     return (
         <div className="max-w-[300px] h-full flex flex-col hover:shadow-xl p-5  ">
             <div>
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="w-80 " />
+                <img src={res_image} className="w-80 " />
             </div>
             <h1 className="text-xl font-medium py-3">{res_name}</h1>
             <div className="pb-2 flex">{renderStars(res_rating)}</div>
@@ -38,6 +38,7 @@ ResCardComponent.propTypes = {
     res_category: PropType.any,
     res_price: PropType.any,
     res_openStatus: PropType.any,
+    res_image: PropType.any,
 };
 
 export default ResCardComponent;

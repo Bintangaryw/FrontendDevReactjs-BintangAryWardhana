@@ -203,6 +203,7 @@ const Main = () => {
                                         res_category={categoryNames}
                                         res_price={res_data.price.min}
                                         res_rating={res_data.rating}
+                                        res_image={res_data.images}
                                     />
                                 );
                             })}
