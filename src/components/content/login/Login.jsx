@@ -1,26 +1,47 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
 const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("https://shy-cloud-3319.fly.dev/api/v1/auth/login", {
+                email,
+                password,
+            });
+            // save the token to localstorage and send user to mainpage
+            localStorage.setItem("token", response.data?.data.token);
+            window.location.replace("/");
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <div className="w-[300px] flex flex-col">
             <div>
                 <h1 className="text-3xl font-bold text-center py-3">Login</h1>
             </div>
 
-            <form action="">
+            <form onSubmit={handleLogin}>
                 <div className="py-3">
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="youremail@gmail.com" autoComplete="off" className="w-full p-2 bg-slate-300 rounded-lg" />
+                    <input type="email" id="email" name="email" placeholder="youremail@gmail.com" autoComplete="off" className="w-full p-2 bg-slate-300 rounded-lg" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div>
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" className="w-full p-2 bg-slate-300 rounded-lg" />
+                    <input type="password" id="password" name="password" className="w-full p-2 bg-slate-300 rounded-lg" value={password} onChange={(e) => setPassword(e.target.value)} />
+                </div>
+                <div className="pt-8">
+                    <button type="submit" className="w-full p-2 bg-[#002b56] rounded-lg text-white">
+                        login
+                    </button>
                 </div>
             </form>
-
-            <div className="pt-8">
-                <button className="w-full p-2 bg-[#002b56] rounded-lg text-white">login</button>
-            </div>
 
             <div className="flex justify-end pt-2">
                 <p className="text-xs">
