@@ -8,11 +8,16 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 # How to run
-Clone repo -> git clone https://github.com/Bintangaryw/FrontendDevReactjs-BintangAryWardhana.git
+Clone repo ->
+- git clone https://github.com/Bintangaryw/FrontendDevReactjs-BintangAryWardhana.git
+
+
 Then run this command:
 - cd FrontendDevReactjs-BintangAryWardhana
 - npm install
 - npm run dev
+
+
 
 Your login account ->
 - email: sekawanmedia@gmail.com
