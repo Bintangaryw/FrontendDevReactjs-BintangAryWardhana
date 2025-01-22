@@ -10,11 +10,11 @@ Currently, two official plugins are available:
 # How to run
 Clone repo -> git clone https://github.com/Bintangaryw/FrontendDevReactjs-BintangAryWardhana.git
 Then run this command:
-cd FrontendDevReactjs-BintangAryWardhana
-npm install
-npm run dev
+- cd FrontendDevReactjs-BintangAryWardhana
+- npm install
+- npm run dev
 
 Your login account ->
-email: sekawanmedia@gmail.com
-pass: Sekawan1234
+- email: sekawanmedia@gmail.com
+- pass: Sekawan1234
 *or you can create your new account in register page
