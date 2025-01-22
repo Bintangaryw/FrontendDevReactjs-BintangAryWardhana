@@ -42,7 +42,7 @@ const Detail = () => {
                     <p className={restaurantDetail.open_status ? "text-green-500" : "text-red-500"}>{restaurantDetail.open_status ? "Open" : "Close"}</p>
                     <div className="flex justify-between">
                         <div className="basis-1/2">
-                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="w-full py-4" />
+                            <img src={restaurantDetail.images} className="w-full py-4" />
                         </div>
                         <div>
                             <div>
