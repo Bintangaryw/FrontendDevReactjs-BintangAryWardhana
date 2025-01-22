@@ -22,4 +22,6 @@ Then run this command:
 Your login account ->
 - email: sekawanmedia@gmail.com
 - pass: Sekawan1234
-*or you can create your new account in register page
+
+
+- or you can create your new account in register page
