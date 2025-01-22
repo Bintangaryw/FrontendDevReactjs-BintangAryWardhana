@@ -20,13 +20,11 @@ const Header = () => {
                     },
                 });
                 setProfile(response.data?.data.email);
-                console.log("profile", profile);
             } catch (error) {
                 console.log(error);
             }
         };
         getProfile();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

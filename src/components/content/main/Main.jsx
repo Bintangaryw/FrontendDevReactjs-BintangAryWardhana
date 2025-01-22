@@ -68,7 +68,6 @@ const Main = () => {
         const getCategories = async () => {
             try {
                 const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/category`);
-                console.log(response.data);
                 setCategories(response.data);
             } catch (error) {
                 console.log(error);

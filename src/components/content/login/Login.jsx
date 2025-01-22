@@ -10,7 +10,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/auth/login`, {
+            const response = await axios.post(`${import.meta.env.VITE_API_AUTH_URL}/api/v1/auth/login`, {
                 email,
                 password,
             });
@@ -20,6 +20,7 @@ const Login = () => {
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 toast.error(error.response?.data?.message);
+                console.log(error);
             } else {
                 console.log(error);
             }
