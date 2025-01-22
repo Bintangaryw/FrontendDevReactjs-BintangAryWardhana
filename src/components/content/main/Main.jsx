@@ -3,6 +3,7 @@ import ResCardComponent from "../../ui/res-card/ResCardComponent";
 import axios from "axios";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
 const Main = () => {
     const [categories, setCategories] = useState([]);
@@ -48,12 +49,15 @@ const Main = () => {
     useEffect(() => {
         const getRestaurantsData = async () => {
             try {
-                const response = await axios.get(`https://678f1c2f49875e5a1a908e4b.mockapi.io/api/v1/restaurants`);
-                console.log(response.data);
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/restaurants`);
                 setRestaurants(response.data);
                 setFilteredRestaurants(response.data);
             } catch (error) {
-                console.log(error);
+                if (axios.isAxiosError(error)) {
+                    toast.error(error.response?.data?.message);
+                } else {
+                    console.log(error);
+                }
             }
         };
         getRestaurantsData();
@@ -63,7 +67,7 @@ const Main = () => {
     useEffect(() => {
         const getCategories = async () => {
             try {
-                const response = await axios.get(`https://678f1c2f49875e5a1a908e4b.mockapi.io/api/v1/category`);
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/category`);
                 console.log(response.data);
                 setCategories(response.data);
             } catch (error) {

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -9,7 +10,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("https://shy-cloud-3319.fly.dev/api/v1/auth/login", {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/v1/auth/login`, {
                 email,
                 password,
             });
@@ -17,7 +18,11 @@ const Login = () => {
             localStorage.setItem("token", response.data?.data.token);
             window.location.replace("/");
         } catch (error) {
-            console.log(error);
+            if (axios.isAxiosError(error)) {
+                toast.error(error.response?.data?.message);
+            } else {
+                console.log(error);
+            }
         }
     };
 

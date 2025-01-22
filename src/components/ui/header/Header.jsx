@@ -14,7 +14,7 @@ const Header = () => {
             const token = localStorage.getItem("token");
             if (!token) return;
             try {
-                const response = await axios.get("https://shy-cloud-3319.fly.dev/api/v1/auth/me", {
+                const response = await axios.get(`${import.meta.env.VITE_API_AUTH_URL}/api/v1/auth/me`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

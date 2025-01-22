@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Register = () => {
     const [name, setName] = useState("");
@@ -20,8 +21,11 @@ const Register = () => {
 
     const handleRegister = async (event) => {
         event.preventDefault();
+        if (!passwordValid) {
+            return toast.error("your password did not match.");
+        }
         try {
-            const response = await axios.post("https://shy-cloud-3319.fly.dev/api/v1/auth/register", {
+            const response = await axios.post(`${import.meta.env.VITE_API_AUTH_URL}/api/v1/auth/register`, {
                 email,
                 name,
                 password,
@@ -31,7 +35,11 @@ const Register = () => {
             localStorage.setItem("token", response.data?.data.token);
             window.location.replace("/");
         } catch (error) {
-            console.log(error);
+            if (axios.isAxiosError(error)) {
+                toast.error(error.response?.data?.message);
+            } else {
+                console.log(error);
+            }
         }
     };
 

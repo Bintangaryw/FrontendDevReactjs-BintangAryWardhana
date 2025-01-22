@@ -13,7 +13,7 @@ const Detail = () => {
     useEffect(() => {
         const getRestaurantDetail = async () => {
             try {
-                const response = await axios.get(`https://678f1c2f49875e5a1a908e4b.mockapi.io/api/v1/restaurants/${restaurantId}`);
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/v1/restaurants/${restaurantId}`);
                 setRestaurantDetail(response.data);
                 setReviews(response.data.review);
             } catch (error) {
